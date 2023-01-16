@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Entity
 @AllArgsConstructor
@@ -14,8 +15,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Long  id;
     private String firstName;
     private String lastName;
     private String email;

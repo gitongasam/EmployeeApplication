@@ -23,10 +23,10 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
-    public Employee findById(Long id) {
+    public Employee findById(Long  id) {
         return employeeRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("user with Id "+ id+"not found" ));
     }
-    public  Employee updateEmployee(@RequestBody Employee employee, @PathVariable("id") long id){
+    public  Employee updateEmployee(@RequestBody Employee employee, @PathVariable("id") Long  id){
         Employee existingEmployee=this.employeeRepository.findById(id)
                 .orElseThrow(()->new ResourceNotFoundException("User not found with id: "+id));
         existingEmployee.setFirstName(employee.getFirstName());
@@ -37,7 +37,7 @@ public class EmployeeService {
     }
 
 
-    public ResponseEntity<Object> deleteEmployee(Long id) {
+    public ResponseEntity<Object> deleteEmployee(Long  id) {
         Employee existingEmployee=this.employeeRepository.findById(id)
                 .orElseThrow(()->new ResourceNotFoundException("User not found with id: "+id));
         this.employeeRepository.delete(existingEmployee);

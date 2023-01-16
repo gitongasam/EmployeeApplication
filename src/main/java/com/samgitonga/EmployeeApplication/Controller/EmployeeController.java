@@ -8,8 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
+
 @RequestMapping("api/v1/")
 public class EmployeeController {
 @Autowired
@@ -23,15 +24,15 @@ public class EmployeeController {
         return employeeService.getAllEmployees();
     }
     @GetMapping("/findById/{id}")
-    public Employee findById(@PathVariable Long id){
+    public Employee findById(@PathVariable Long  id){
         return employeeService.findById(id);
     }
     @PutMapping  ("/updateEmployee/{id}")
-    public  Employee updateEmployee(@RequestBody Employee employee, @PathVariable("id") long id) {
+    public  Employee updateEmployee(@RequestBody Employee employee, @PathVariable("id") Long  id) {
         return employeeService.updateEmployee(employee, id);
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteUser(@PathVariable Long id){
+    public ResponseEntity<Object> deleteUser(@PathVariable Long  id){
         return employeeService.deleteEmployee(id);
     }
 }
